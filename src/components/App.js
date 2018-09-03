@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 
 class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      text: ""
+    }
+  }
+  handleInputOnchange(event) {
+    this.setState({
+      text: event.value
+    });
+  }
   render() {
     return (
       <div className="App">
@@ -8,7 +19,7 @@ class App extends Component {
 
         <div className="form-inline">
           <div className="form-group">
-            <input type="text" className="form-control mr-3" placeholder="Remind me to..."/>
+            <input value={this.state.text} onChange={(event)=>this.handleInputOnchange(event)} type="text" className="form-control mr-3" placeholder="Remind me to..."/>
           </div>
           <button className="btn btn-primary">
             Add Reminder
