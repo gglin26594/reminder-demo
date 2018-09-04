@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { addReminder } from "../actions";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import moment  from "moment";
 
 class App extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class App extends Component {
               <div className="list_item">
                 <div>{reminder.text}</div>
                 <div>
-                  <em>{reminder.time}</em>
+                  <em>{moment(new Date(reminder.time)).fromNow()}</em>
                 </div>
               </div>
             </li>
