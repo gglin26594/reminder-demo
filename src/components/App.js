@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { addReminder } from "../actions";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class App extends Component {
   constructor(props) {
@@ -73,6 +74,12 @@ class App extends Component {
     );
   }
 }
+
+App.propType = {
+  reminderList: PropTypes.array.isRequired,
+  addReminder: PropTypes.func.isRequired
+}
+
 const mapStateToProps = state => {
   return {
     reminderList: state
