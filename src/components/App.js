@@ -6,7 +6,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ""
+      text: "",
+      time: ""
     };
   }
   handleInputOnchange(value) {
@@ -14,8 +15,13 @@ class App extends Component {
       text: value
     });
   }
+  handleTimeOnChange(value){
+    this.setState({
+      time: value
+    });
+  }
   addReminder() {
-    this.props.addReminder(this.state.text);
+    this.props.addReminder(this.state.text, this.state.time);
   }
 
   renderReminderList() {
@@ -28,7 +34,7 @@ class App extends Component {
               <div className="list_item">
                 <div>{reminder.text}</div>
                 <div>
-                  <em>time</em>
+                  <em>{reminder.time}</em>
                 </div>
               </div>
             </li>
@@ -48,6 +54,11 @@ class App extends Component {
               type="text"
               className="form-control mr-3"
               placeholder="Remind me to..."
+            />
+            <input
+              type="datetime-local"
+              className="form-control  mr-3"
+              onChange={event => this.handleTimeOnChange(event.target.value)}
             />
           </div>
           <button

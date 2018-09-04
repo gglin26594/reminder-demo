@@ -3,7 +3,8 @@ import { ADD_REMINDER } from "../constant";
 const tempReminder= (action)=> {
     return {
         text: action.text,
-        id: Math.random() //since we have not many data item, so id is not likely to duplicate just for fast dev
+        id: Math.random(), //since we have not many data item, so id is not likely to duplicate just for fast dev
+        time: action.time
     }
 };
 
